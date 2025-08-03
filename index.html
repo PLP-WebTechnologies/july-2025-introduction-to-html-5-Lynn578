@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A sample HTML5 page demonstrating accessibility and SEO best practices">
+    
+    <!-- SEO Title -->
+    <title>Accessible HTML5 Page | PLP Web Technologies</title>
+
+    <!-- SEO Microdata -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PLP Web Technologies",
+      "url": "https://example.com",
+      "logo": "https://example.com/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-555-5555",
+        "contactType": "Customer service"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip to Content Link (Accessibility) -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Semantic Header -->
+    <header role="banner">
+        <h1>Welcome to My Accessible Website</h1>
+        
+        <!-- Mobile Navigation Toggle -->
+        <button aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+            ☰ Menu
+        </button>
+        
+        <nav aria-label="Main navigation" id="mobile-menu" hidden>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <article id="about">
+            <h2>About Us</h2>
+            <p>We create accessible websites that follow modern HTML5 standards.</p>
+            <figure>
+                <img src="team.jpg" alt="Diverse team collaborating in office" width="400">
+                <figcaption>Our team working on accessibility projects</figcaption>
+            </figure>
+            
+            <!-- SEO Rich Snippet -->
+            <div itemscope itemtype="https://schema.org/Person">
+                <h3>Meet Our Founder</h3>
+                <p itemprop="name">Jane Doe</p>
+                <p itemprop="jobTitle">Accessibility Specialist</p>
+            </div>
+        </article>
+
+        <section id="services" aria-labelledby="services-heading">
+            <h2 id="services-heading">Our Services</h2>
+            <ul>
+                <li>HTML5 Semantic Markup</li>
+                <li>Accessibility Audits</li>
+                <li>SEO Optimization</li>
+            </ul>
+            
+            <!-- ARIA Live Region for Dynamic Content -->
+            <div aria-live="polite" id="service-updates"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <p>&copy; <span id="current-year">2025</span> PLP Web Technologies. All rights reserved.</p>
+        <address>
+            Contact: <a href="mailto:contact@example.com">contact@example.com</a><br>
+            Phone: <a href="tel:+15555555555">(555) 555-5555</a>
+        </address>
+        
+        <!-- Hidden Accessibility Statement Link -->
+        <a href="/accessibility" style="position:absolute;left:-9999px">Accessibility Statement</a>
+    </footer>
+
+    <!-- Simple JavaScript for enhancements -->
+    <script>
+        // Update copyright year automatically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle functionality
+        const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
+        menuButton.addEventListener('click', function() {
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            document.getElementById('mobile-menu').hidden = expanded;
+        });
+    </script>
+</body>
+</html>
