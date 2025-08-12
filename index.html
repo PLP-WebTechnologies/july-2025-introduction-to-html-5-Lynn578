@@ -1,107 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
+    <!-- SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A sample HTML5 page demonstrating accessibility and SEO best practices">
+    <meta name="description" content="A sample HTML5 page demonstrating semantic structure, accessibility, and SEO best practices">
+    <meta name="keywords" content="HTML5, accessibility, SEO, semantic web">
+    <title>Accessible HTML5 Page | Semantic Structure Example</title>
     
-    <!-- SEO Title -->
-    <title>Accessible HTML5 Page | PLP Web Technologies</title>
-
-    <!-- SEO Microdata -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "PLP Web Technologies",
-      "url": "https://example.com",
-      "logo": "https://example.com/logo.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-555-555-5555",
-        "contactType": "Customer service"
-      }
-    }
-    </script>
+    <!-- Accessibility: Skip to Content Link -->
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
 </head>
 <body>
-    <!-- Skip to Content Link (Accessibility) -->
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- Semantic Header - Removed redundant role="banner" -->
-    <header>
-        <h1>Welcome to My Accessible Website</h1>
+    <!-- Skip to Content Link for Screen Readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Semantic Header -->
+    <header role="banner">
+        <h1>Welcome to Our Accessible Website</h1>
         
-        <!-- Mobile Navigation Toggle -->
-        <button aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
-            ☰ Menu
-        </button>
-        
-        <nav aria-label="Main navigation" id="mobile-menu" hidden>
+        <!-- Navigation with ARIA Label -->
+        <nav aria-label="Main navigation">
             <ul>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- Main Content -->
-    <main id="main-content">
-        <article id="about">
-            <h2>About Us</h2>
-            <p>We create accessible websites that follow modern HTML5 standards.</p>
-            <figure>
-                <img src="team.jpg" alt="Diverse team collaborating in office" width="400">
-                <figcaption>Our team working on accessibility projects</figcaption>
-            </figure>
+    
+    <!-- Main Content Area -->
+    <main id="main-content" role="main">
+        <!-- About Section -->
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Our Company</h2>
+            <p>We specialize in creating accessible, SEO-friendly websites using modern HTML5 standards.</p>
             
-            <!-- SEO Rich Snippet -->
-            <div itemscope itemtype="https://schema.org/Person">
-                <h3>Meet Our Founder</h3>
-                <p itemprop="name">Jane Doe</p>
-                <p itemprop="jobTitle">Accessibility Specialist</p>
-            </div>
-        </article>
-
+            <article>
+                <h3>Our Mission</h3>
+                <p>To make the web accessible to everyone, regardless of ability or device.</p>
+            </article>
+        </section>
+        
+        <!-- Services Section -->
         <section id="services" aria-labelledby="services-heading">
             <h2 id="services-heading">Our Services</h2>
             <ul>
-                <li>HTML5 Semantic Markup</li>
                 <li>Accessibility Audits</li>
                 <li>SEO Optimization</li>
+                <li>Semantic HTML Development</li>
             </ul>
-            
-            <!-- ARIA Live Region for Dynamic Content -->
-            <div aria-live="polite" id="service-updates"></div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact Us</h2>
+            <address>
+                Email: <a href="mailto:linda@gmail.com">linda@gmail.com</a><br>
+                Phone: <a href="tel:000134552">000-134-552</a>
+            </address>
         </section>
     </main>
-
-    <!-- Footer - Removed redundant role="contentinfo" -->
-    <footer>
-        <p>&copy; <span id="current-year">2025</span> PLP Web Technologies. All rights reserved.</p>
-        <address>
-            Contact: <a href="mailto:contact@example.com">contact@example.com</a><br>
-            Phone: <a href="tel:+15555555555">(555) 555-5555</a>
-        </address>
-        
-        <!-- Hidden Accessibility Statement Link -->
-        <a href="/accessibility" style="position:absolute;left:-9999px">Accessibility Statement</a>
+    
+    <!-- Semantic Footer -->
+    <footer role="contentinfo">
+        <p>&copy; 2023 Accessible Web Company. All rights reserved.</p>
+        <p><small>Last updated: <time datetime="2023-11-15">November 15, 2023</time></small></p>
     </footer>
-
-    <!-- Simple JavaScript for enhancements -->
-    <script>
-        // Update copyright year automatically
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Mobile menu toggle functionality
-        const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
-        menuButton.addEventListener('click', function() {
-            const expanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !expanded);
-            document.getElementById('mobile-menu').hidden = expanded;
-        });
-    </script>
 </body>
 </html>
